@@ -1,11 +1,11 @@
 # Food-Delivery
 In this project, I will develop an Online Food Delivery Order Manager using HTML, CSS, and JavaScript. The application allows users to add, view, and manage food delivery orders through a simple and interactive interface.
-🍔 FoodFlow – Online Food Delivery Order Manager
-📌 Project Overview
+FoodFlow – Online Food Delivery Order Manager
+Project Overview
 
 FoodFlow is a frontend-based web application developed using HTML, CSS, and JavaScript. The project is designed to manage online food delivery orders efficiently. It allows users to add new orders, view all existing orders, filter orders based on specific conditions, and automatically assign delivery to the nearest unpaid order. The application focuses on clean UI design, logical implementation, and real-world usability.
 
-🎯 Project Objective
+ Project Objective
 
 The main objective of this project is to:
 
@@ -17,7 +17,7 @@ Demonstrate frontend development skills using core web technologies
 
 Create a deployable and user-friendly web application
 
-🛠️ Technology Stack
+Technology Stack
 
 HTML5 – Structure and layout of the application
 
@@ -29,27 +29,27 @@ Font Awesome – Icons
 
 Google Fonts (Poppins, Inter) – Typography
 
-📦 Features
+ Features
 
-➕ Add new food delivery orders
+ Add new food delivery orders
 
-📋 View all orders in a structured list
+ View all orders in a structured list
 
-🔍 Filter orders by:
+ Filter orders by:
 
 Paid / Unpaid status
 
 Maximum delivery distance
 
-🚚 Automatically assign delivery to the nearest unpaid order
+ Automatically assign delivery to the nearest unpaid order
 
-❗ Display message when no suitable order is available
+ Display message when no suitable order is available
 
-⚠️ Basic input validation and error handling
+Basic input validation and error handling
 
-📱 Responsive and user-friendly UI
+ Responsive and user-friendly UI
 
-🧠 Data Model
+ Data Model
 
 Each food order contains the following fields:
 
@@ -63,7 +63,7 @@ isPaid – Payment status (true / false)
 
 deliveryDistance – Distance in kilometers
 
-🚀 Assign Delivery Logic
+ Assign Delivery Logic
 
 Only unpaid orders are considered for delivery assignment
 
