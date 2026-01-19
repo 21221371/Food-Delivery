@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders - FoodFlow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-leaf"></i>
+                <span>FoodFlow</span>
+            </div>
+            <ul class="nav-menu">
+                <li>
+                    <a href="add-order.html" class="nav-link">
+                        <i class="fas fa-plus-circle"></i> Add Order
+                    </a>
+                </li>
+                <li>
+                    <a href="orders.html" class="nav-link active">
+                        <i class="fas fa-list"></i> Orders
+                    </a>
+                </li>
+                <li>
+                    <a href="assign-delivery.html" class="nav-link">
+                        <i class="fas fa-truck"></i> Assign Delivery
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <div class="main-container">
+        <div class="dashboard">
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+                <div>
+                    <h1><i class="fas fa-list"></i> Order Management</h1>
+                    <p class="subtitle">View and manage all your delivery orders</p>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalOrders">0</span>
+                        <span class="stat-label">Total Orders</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="paidOrders">0</span>
+                        <span class="stat-label">Paid Orders</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="unpaidOrders">0</span>
+                        <span class="stat-label">Unpaid Orders</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FILTER SECTION -->
+            <div class="filter-container card">
+                <div class="card-header">
+                    <h2><i class="fas fa-filter"></i> Filter Orders</h2>
+                </div>
+                <div class="filter-content">
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label>Payment Status</label>
+                            <select id="filterPaid" class="form-input">
+                                <option value="all">All Orders</option>
+                                <option value="paid">Paid Only</option>
+                                <option value="unpaid">Unpaid Only</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label>Max Distance (KM)</label>
+                            <input type="number" id="filterDistance" placeholder="e.g., 10" step="0.1" min="0" class="form-input">
+                        </div>
+                        <div class="form-field">
+                            <label>Search Order ID</label>
+                            <input type="text" id="searchOrderId" placeholder="e.g., ORD-001" class="form-input">
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button onclick="filterOrders()" class="btn btn-primary">
+                            <i class="fas fa-search"></i> Apply Filters
+                        </button>
+                        <button onclick="resetFilters()" class="btn btn-secondary">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENT AREA -->
+            <div class="single-column-layout">
+                <!-- ORDERS LIST -->
+                <div class="card orders-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-list"></i> All Orders</h2>
+                        <span class="order-count" id="orderCount">0</span>
+                    </div>
+                    <div class="orders-list-container">
+                        <ul class="orders-list" id="orderList">
+                            <li class="empty-list">
+                                <i class="fas fa-inbox"></i>
+                                <p>No orders yet. Create your first order to get started.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SYSTEM OUTPUT -->
+                <div class="card output-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-bell"></i> System Messages</h2>
+                    </div>
+                    <div class="output-content" id="output">
+                        <div class="empty-state">
+                            <i class="fas fa-info-circle"></i>
+                            <p>No messages yet. Perform actions to see updates here.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

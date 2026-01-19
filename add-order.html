@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Order - FoodFlow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-leaf"></i>
+                <span>FoodFlow</span>
+            </div>
+            <ul class="nav-menu">
+                <li>
+                    <a href="add-order.html" class="nav-link active">
+                        <i class="fas fa-plus-circle"></i> Add Order
+                    </a>
+                </li>
+                <li>
+                    <a href="orders.html" class="nav-link">
+                        <i class="fas fa-list"></i> Orders
+                    </a>
+                </li>
+                <li>
+                    <a href="assign-delivery.html" class="nav-link">
+                        <i class="fas fa-truck"></i> Assign Delivery
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <div class="main-container">
+        <div class="dashboard">
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+                <div>
+                    <h1><i class="fas fa-plus-circle"></i> Add New Order</h1>
+                    <p class="subtitle">Create and manage new delivery orders</p>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalOrders">0</span>
+                        <span class="stat-label">Total Orders</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="paidOrders">0</span>
+                        <span class="stat-label">Paid Orders</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENT AREA -->
+            <div class="single-column-layout">
+                <!-- ADD ORDER FORM CARD -->
+                <div class="card add-order-card">
+                    <div class="card-header">
+                        <div>
+                            <h2><i class="fas fa-plus-circle"></i> New Order Form</h2>
+                            <p class="card-subtitle">Fill in the details to create a new order</p>
+                        </div>
+                    </div>
+                    <form class="form-group" onsubmit="addOrder(event)">
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label>Order ID <span class="required">*</span></label>
+                                <input type="text" id="orderId" placeholder="e.g., ORD-001" class="form-input" required>
+                            </div>
+                            <div class="form-field">
+                                <label>Payment Status <span class="required">*</span></label>
+                                <select id="isPaid" class="form-input" required>
+                                    <option value="false">Unpaid</option>
+                                    <option value="true">Paid</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label>Restaurant Name <span class="required">*</span></label>
+                                <input type="text" id="restaurantName" placeholder="e.g., Green Bites" class="form-input" required>
+                            </div>
+                            <div class="form-field">
+                                <label>Distance (KM) <span class="required">*</span></label>
+                                <input type="number" id="distance" placeholder="e.g., 5.2" step="0.1" min="0" class="form-input" required>
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <label>Item Count <span class="required">*</span></label>
+                            <input type="number" id="itemCount" placeholder="e.g., 3" min="1" class="form-input" required>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-check"></i> Create Order
+                            </button>
+                            <button type="reset" class="btn btn-secondary btn-lg">
+                                <i class="fas fa-redo"></i> Clear Form
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- OUTPUT PANEL -->
+                <div class="card output-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-bell"></i> System Messages</h2>
+                    </div>
+                    <div class="output-content" id="output">
+                        <div class="empty-state">
+                            <i class="fas fa-info-circle"></i>
+                            <p>No messages yet. Create an order to see updates here.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RECENT ORDERS -->
+                <div class="card orders-card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-list"></i> Recent Orders</h2>
+                        <span class="order-count" id="orderCount">0</span>
+                    </div>
+                    <div class="orders-list-container">
+                        <ul class="orders-list" id="orderList">
+                            <li class="empty-list">
+                                <i class="fas fa-inbox"></i>
+                                <p>No orders yet. Create your first order.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

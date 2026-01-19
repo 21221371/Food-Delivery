@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Delivery - FoodFlow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-leaf"></i>
+                <span>FoodFlow</span>
+            </div>
+            <ul class="nav-menu">
+                <li>
+                    <a href="add-order.html" class="nav-link">
+                        <i class="fas fa-plus-circle"></i> Add Order
+                    </a>
+                </li>
+                <li>
+                    <a href="orders.html" class="nav-link">
+                        <i class="fas fa-list"></i> Orders
+                    </a>
+                </li>
+                <li>
+                    <a href="assign-delivery.html" class="nav-link active">
+                        <i class="fas fa-truck"></i> Assign Delivery
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTAINER -->
+    <div class="main-container">
+        <div class="dashboard">
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+                <div>
+                    <h1><i class="fas fa-truck"></i> Assign Delivery</h1>
+                    <p class="subtitle">Filter orders and assign deliveries to drivers</p>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalOrders">0</span>
+                        <span class="stat-label">Total Orders</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="unassignedOrders">0</span>
+                        <span class="stat-label">Unassigned</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTENT AREA -->
+            <div class="assign-layout">
+                <!-- LEFT: FILTER & ASSIGN PANEL -->
+                <div class="assign-left-panel">
+                    <!-- FILTER CARD -->
+                    <div class="card filter-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-filter"></i> Search & Filter</h2>
+                            <p class="card-subtitle">Find orders to assign</p>
+                        </div>
+                        <div class="filter-section">
+                            <div class="form-field">
+                                <label>Payment Filter <span class="required">*</span></label>
+                                <select id="filterPaid" class="form-input">
+                                    <option value="all">All Orders</option>
+                                    <option value="paid">Paid Only</option>
+                                    <option value="unpaid">Unpaid Only</option>
+                                </select>
+                            </div>
+
+                            <div class="form-field">
+                                <label>Max Distance (KM) <span class="required">*</span></label>
+                                <input type="number" id="maxDistance" placeholder="e.g., 10" step="0.1" min="0" class="form-input" required>
+                            </div>
+
+                            <div class="form-field">
+                                <label>Sorting</label>
+                                <select id="sortBy" class="form-input">
+                                    <option value="distance">Nearest First</option>
+                                    <option value="latest">Latest First</option>
+                                    <option value="items">Most Items</option>
+                                </select>
+                            </div>
+
+                            <div class="button-group">
+                                <button onclick="filterOrders()" class="btn btn-primary btn-block">
+                                    <i class="fas fa-search"></i> Search Orders
+                                </button>
+                                <button onclick="assignDelivery()" class="btn btn-success btn-block">
+                                    <i class="fas fa-truck"></i> Assign Top Order
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ASSIGNMENT HISTORY -->
+                    <div class="card history-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-history"></i> Assignment History</h2>
+                        </div>
+                        <div class="history-content" id="assignmentHistory">
+                            <div class="empty-state">
+                                <i class="fas fa-clipboard-list"></i>
+                                <p>No assignments yet.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: RESULTS & OUTPUT PANEL -->
+                <div class="assign-right-panel">
+                    <!-- SYSTEM OUTPUT -->
+                    <div class="card output-card output-card-large">
+                        <div class="card-header">
+                            <h2><i class="fas fa-bell"></i> Assignment Details</h2>
+                        </div>
+                        <div class="output-content" id="output">
+                            <div class="empty-state">
+                                <i class="fas fa-info-circle"></i>
+                                <p>Search and filter orders to see assignment options here.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AVAILABLE ORDERS -->
+                    <div class="card orders-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-boxes"></i> Available Orders</h2>
+                            <span class="order-count" id="availableCount">0</span>
+                        </div>
+                        <div class="orders-list-container">
+                            <ul class="orders-list" id="availableOrdersList">
+                                <li class="empty-list">
+                                    <i class="fas fa-inbox"></i>
+                                    <p>Apply filters to see available orders.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
